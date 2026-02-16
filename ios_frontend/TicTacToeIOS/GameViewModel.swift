@@ -21,14 +21,18 @@ final class GameViewModel: ObservableObject {
 
     // PUBLIC_INTERFACE
     func cellTitle(at index: Int) -> String {
-        """Returns the display title for the cell at the given board index (0...8)."""
+        /**
+         Returns the display title for the cell at the given board index (0...8).
+         */
         guard (0..<board.count).contains(index) else { return "" }
         return board[index]?.rawValue ?? ""
     }
 
     // PUBLIC_INTERFACE
     func tapCell(at index: Int) {
-        """Handles a user tap on the cell at the given index, updating game state and detecting win/draw."""
+        /**
+         Handles a user tap on the cell at the given index, updating game state and detecting win/draw.
+         */
         guard (0..<board.count).contains(index) else { return }
         guard gameState == .playing else { return }
         guard board[index] == nil else { return }
@@ -52,7 +56,9 @@ final class GameViewModel: ObservableObject {
 
     // PUBLIC_INTERFACE
     func reset() {
-        """Resets the game to an initial state, clearing the board and setting the current player to X."""
+        /**
+         Resets the game to an initial state, clearing the board and setting the current player to X.
+         */
         board = Array(repeating: nil, count: 9)
         currentPlayer = .x
         gameState = .playing

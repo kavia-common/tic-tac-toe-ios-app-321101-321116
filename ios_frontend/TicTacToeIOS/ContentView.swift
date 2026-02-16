@@ -54,6 +54,7 @@ struct ContentView: View {
                     action: { viewModel.tapCell(at: idx) }
                 )
                 .aspectRatio(1, contentMode: .fit)
+                .accessibilityIdentifier("cellButton_\(idx)")
             }
         }
         .padding(14)
@@ -92,7 +93,6 @@ private struct CellButton: View {
         }
         .buttonStyle(.plain)
         .disabled(!title.isEmpty) // Disable already selected cells (view model also guards)
-        .accessibilityIdentifier("cellButton_\(title)")
     }
 }
 
